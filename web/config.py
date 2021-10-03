@@ -4,10 +4,16 @@ app_dir = os.path.abspath(os.path.dirname(__file__))
 
 class BaseConfig:
     DEBUG = True
-    POSTGRES_URL=""  #TODO: Update value
-    POSTGRES_USER="" #TODO: Update value
-    POSTGRES_PW=""   #TODO: Update value
-    POSTGRES_DB=""   #TODO: Update value
+    """
+    POSTGRES_URL= "localhost"
+    POSTGRES_USER="postgres"
+    POSTGRES_PW="postgres"
+    POSTGRES_DB="techconfdb"
+    """
+    POSTGRES_URL= "ud3server.postgres.database.azure.com"
+    POSTGRES_USER="azureuser@ud3server"
+    POSTGRES_PW="testing@AZURE"
+    POSTGRES_DB="techconfdb"
     
     DB_URL = 'postgresql://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER,pw=POSTGRES_PW,url=POSTGRES_URL,db=POSTGRES_DB)
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI') or DB_URL
